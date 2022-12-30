@@ -11,7 +11,7 @@ mappings = {
 
 
 function letterCombinations(input_digit) {
- const ans = s
+ const ans = input_digit
     .split("")
     .map(function (v) {
       return mappings[v] || [""];
