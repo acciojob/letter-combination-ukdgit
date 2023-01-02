@@ -11,18 +11,24 @@ mappings = {
 
 
 function letterCombinations(input_digit) {
- const ans = input_digit
-    .split("")
-    .map(function (v) {
-      return mappings[v] || [""];
-    })
-    .reduce(function (a, b) {
-      var combi = [];
-      for (var i = 0; i < a.length; i++)
-        for (var j = 0; j < b.length; j++) combi.push(a[i] + b[j]);
-      return combi;
-    });
-  return ans;
+   if (digits === '') { return []; }
+
+  const strDigits = {
+    '2': 'abc',
+    '3': 'def',
+    '4': 'ghi',
+    '5': 'jkl',
+    '6': 'mno',
+    '7': 'pqrs',
+    '8': 'tuv',
+    '9': 'wxyz',
+  };
+
+  const combine = (cur, n) => cur.length === digits.length 
+    ? cur
+    : [...strDigits[digits[n]]].flatMap(x => combine(cur + x, n + 1));
+
+  return combine('', 0);
 }
 
 module.exports = letterCombinations;
