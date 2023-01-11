@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-const letterCombination = require('./solution');
+const letterCombination = require('./script');
 
 app.use(express.static(__dirname))
 
